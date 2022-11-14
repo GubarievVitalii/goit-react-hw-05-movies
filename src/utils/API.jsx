@@ -12,10 +12,22 @@ export async function fetchTrendingMovies() {
   return response.data.results;
 };
 
+export async function fetchSearchMovie(query) {
+  axios.defaults.params = {
+    api_key: API_KEY,      
+    query: query,
+    include_adult: false,
+    language: "en"
+  };
+  const response = await axios.get(`/search/movie`);
+  return response.data.results;
+};
+
+
 export async function fetchMovieDetails(id) {
     axios.defaults.params = {
     api_key: API_KEY,
-    language: "en"    
+    language: "en",
   };
   const response = await axios.get(`/movie/${id}`);
   return response.data;
@@ -26,8 +38,8 @@ export async function fetchMovieCredits(id) {
     api_key: API_KEY,
     language: "en"    
   };
-  const response = await axios.get(`/credit/${id}`);
-  return response.data;
+  const response = await axios.get(`/movie/${id}/credits`);
+  return response.data.cast;
 }
 
 export async function fetchMovieReviews(id) {
@@ -35,12 +47,8 @@ export async function fetchMovieReviews(id) {
     api_key: API_KEY,
     language: "en"    
   };
-  const response = await axios.get(`/review/${id}`);
-  return response.data;
+  const response = await axios.get(`/movie/${id}/reviews`);
+    return response.data.results;
 }
 
-// /trending/get-trending      список самых популярных фильмов на сегодня для создания коллекции на главной странице.
 // /search/search-movies       поиск кинофильма по ключевому слову на странице фильмов.
-// /movies/get-movie-details   запрос полной информации о фильме для страницы кинофильма.
-// /movies/get-movie-credits   запрос информации о актёрском составе для страницы кинофильма.
-// /movies/get-movie-reviews   запрос обзоров для страницы кинофильма.
