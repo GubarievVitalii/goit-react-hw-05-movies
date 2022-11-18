@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-
+import s from "./MovieList.module.scss"
 
 const MovieList = ({array}) => {
     return (
         <>
-            <ul>                
-            {array.map(({ id, title }) => (<li key ={id}>
-            <Link to={`/movies/${id}`}>{ title }</Link>
+            <ol className={s.movieList}>                
+            {array.map(({ id, title }) => (<li className={s.movieList_item} key ={id}>
+            <Link className={s.movieList_link} to={`/movies/${id}`}>{ title }</Link>
             </li>))}
-            </ul>
+            </ol>
         </>
     )
 

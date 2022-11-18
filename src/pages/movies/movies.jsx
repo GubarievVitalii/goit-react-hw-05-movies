@@ -1,16 +1,12 @@
-import { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
+import { useState } from "react";
 import { fetchSearchMovie } from '../../utils/API'
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import MovieList from '../../components/MovieList/MovieList'
+import s from "./movies.module.scss"
 
 const SearchMovie = () => {
     const [data, setData] = useState()
     const [query, setQuery] = useState('')
-    // const { query } = useParams();
-    // useEffect(() => {
-    //     fetchSearchMovie().then(results => setData(results)).catch(error => console.log(error))
-    // }, [query])
 
     const onInputChange = event => setQuery(event.target.value);
     const reset = () => setQuery('');
@@ -27,7 +23,7 @@ const SearchMovie = () => {
     }
     return (
         <>
-            <form onSubmit={onFormSubmit}>
+            <form className={s.searchMovie_form} onSubmit={onFormSubmit}>
                 <input
                     name="query"
                     value={query}

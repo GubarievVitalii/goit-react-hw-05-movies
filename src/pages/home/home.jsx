@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { fetchTrendingMovies } from '../../utils/API'
 import MovieList from '../../components/MovieList/MovieList'
+import s from "./home.module.scss"
 
 const Home = () => {
     const [data, setData] = useState()
@@ -11,13 +11,10 @@ const Home = () => {
     
     return (
         <>
+            <p className={s.home}>TOP week</p>
             {data && <MovieList array={data} />}
         </>
     )
 };
-
-// Home.propTypes = {
-//   data: PropTypes.array.isRequired,
-// };
 
 export default Home;

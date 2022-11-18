@@ -1,0 +1,18 @@
+.mainWrapper {
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-weight: 700;
+    font-size: 40px;
+    border-bottom: 4px dotted rgb(255, 0, 0);
+}
+
+.mainWrapper_item {
+    text-decoration: none;
+    color: rgb(187, 1, 1);
+}
+
+.mainWrapper_item:not(:last-child) {
+    padding-right: 70px;
+}
+

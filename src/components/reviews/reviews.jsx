@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieReviews } from '../../utils/API';
+import s from "./reviews.module.scss"
 
 const Reviews = () => {
     const [data, setData] = useState();
@@ -13,18 +14,18 @@ const Reviews = () => {
 
     return (
         <div>
-            {data && data.length>0 ? (
+            {data && data.length > 0 ? (
                 data.map(({ author, content }) => {
                     return (
                         <>
-                            <p>{author}</p>
-                            <p>{content}</p>
+                            <p className={s.reviews}>{author}</p>
+                            <p className={s.reviews}>{content}</p>
                         </>
                     )
                 })) : (<p>We don't have any reviews for this movie.</p>)
             }
         </div>
     );
-}
+};
 
 export default Reviews;
