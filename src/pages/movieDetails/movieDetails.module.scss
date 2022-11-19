@@ -4,6 +4,20 @@
     color: rgb(235, 235, 235);
 }
 
+.movieDetails_btn {
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(90, 90, 90);
+    border-radius: 10px;
+    margin-top: 24px;
+}
+
+.movieDetails_icon {
+    padding-right: 10px;
+}
+
 .movieDetails_primaryTitle {
     text-align: center;
     font-size: 36px;

@@ -13,18 +13,18 @@ const Reviews = () => {
     }, [movieId]);
 
     return (
-        <div>
+        <ul className={s.reviews_list}>
             {data && data.length > 0 ? (
-                data.map(({ author, content }) => {
+                data.map(({ author, content, id}) => {
                     return (
-                        <>
-                            <p className={s.reviews}>{author}</p>
-                            <p className={s.reviews}>{content}</p>
-                        </>
+                        <li key={id}>
+                            <p className={s.reviews_listItem}>{author}</p>
+                            <p className={s.reviews_listItem}>{content}</p>
+                        </li>
                     )
                 })) : (<p>We don't have any reviews for this movie.</p>)
             }
-        </div>
+        </ul>
     );
 };
 

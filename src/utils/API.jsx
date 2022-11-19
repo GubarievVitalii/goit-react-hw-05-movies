@@ -50,5 +50,3 @@ export async function fetchMovieReviews(id) {
   const response = await axios.get(`/movie/${id}/reviews`);
     return response.data.results;
 }
-
-// /search/search-movies       поиск кинофильма по ключевому слову на странице фильмов.

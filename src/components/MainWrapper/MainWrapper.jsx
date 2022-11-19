@@ -1,4 +1,6 @@
+import { Suspense } from 'react';
 import { Link, Outlet } from "react-router-dom";
+import Loader from '../Loader/loader';
 import s from "./MainWrapper.module.scss"
 
 const MainWrapper = () => {
@@ -11,7 +13,9 @@ const MainWrapper = () => {
             </nav>
             </header>
             <main>
-                <Outlet/>
+                <Suspense fallback={<Loader />}>
+                    <Outlet />
+                </Suspense>
             </main>
         </>
 )
